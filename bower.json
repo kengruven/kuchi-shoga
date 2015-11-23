@@ -1,0 +1,22 @@
+{
+  "name": "kuchi-shoga",
+  "main": "kuchi-shoga.js",
+  "homepage": "https://github.com/kengruven/kuchi-shoga",
+  "authors": [
+    "Ken Harris <kengruven@gmail.com>"
+  ],
+  "description": "",
+  "moduleType": [],
+  "license": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
