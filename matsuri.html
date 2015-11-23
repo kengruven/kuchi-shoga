@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="kuchi-shoga.js"></script>
+<link href="kuchi-shoga.css" rel="stylesheet"></link>
+</head>
+
+<body>
+
+<h2>Matsuri Taiko</h2>
+<div id="matsuri"></div>
+
+<script type="text/javascript">
+$(function() {
+  renderPiece($("#matsuri"),
+[
+{hits:"*--- *--- *-xx x-x-"},
+{hits:"*-*- --*- *-xx x-x-"},
+{hits:"--*- --*- *-xx x-x-"},
+{hits:"*-x- x-*- *-xx x-x-"},
+{hits:"**xx *-*- *-xx x-x-"}
+]);
+
+});
+</script>
+
+</body>
+</html>

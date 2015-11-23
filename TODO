@@ -1,0 +1,29 @@
+TODO:
+- for swing beat, space pairs out a bit
+- better ma? (= tick mark?)
+- make label/notes stick to top of cell, and repeat stick to bottom?
+
+FUTURE:
+- editing
+--- keyboard, mouse, tapping?
+--- repeats
+- other views
+--- dots / dons / ...
+--- toggle voices (multiple voices)
+--- other kinds of kuchi shoga: voice = chu / shime / kane / ...
+--- voice = fue (japanese numbers)?
+- other per-strike information
+--- l/r
+--- strength (1-10)
+--- custom kuchi shoga
+--- stick figures for position?
+--- multiple drums (e.g., yui set)
+--- flam?
+- playback (visual, audio)
+- recording (keyboard)
+- server, database, sharing
+- metronome?
+- touch-only (mobile) support
+- tech:
+--- jquery -- newer!  (bower?)
+--- css reset?
