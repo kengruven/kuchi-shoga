@@ -10,5 +10,6 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "puppet" do |puppet|
     puppet.module_path = "puppet/modules"
+    puppet.manifests_path = "puppet/manifests"
   end
 end
