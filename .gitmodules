@@ -1,0 +1,12 @@
+[submodule "puppet/modules/java"]
+	path = puppet/modules/java
+	url = http://github.com/puppetlabs/puppetlabs-java.git
+[submodule "puppet/modules/stdlib"]
+	path = puppet/modules/stdlib
+	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
+[submodule "puppet/modules/apt"]
+	path = puppet/modules/apt
+	url = https://github.com/puppetlabs/puppetlabs-apt.git
+[submodule "puppet/modules/leiningen"]
+	path = puppet/modules/leiningen
+	url = https://github.com/paulfurley/puppet-leiningen.git
