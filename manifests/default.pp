@@ -13,3 +13,10 @@ class leiningen($user="vagrant") {
   }
 }
 include leiningen
+
+class { 'postgresql::server': }
+
+postgresql::server::db { 'kuchi_shoga':
+  user     => 'kuchi_shoga_app',
+  password => postgresql_password('kuchi_shoga_app', 'password123'),
+}

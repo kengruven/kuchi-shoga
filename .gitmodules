@@ -10,3 +10,9 @@
 [submodule "puppet/modules/leiningen"]
 	path = puppet/modules/leiningen
 	url = https://github.com/paulfurley/puppet-leiningen.git
+[submodule "puppet/modules/postgresql"]
+	path = puppet/modules/postgresql
+	url = http://github.com/puppetlabs/puppetlabs-postgresql.git
+[submodule "puppet/modules/concat"]
+	path = puppet/modules/concat
+	url = http://github.com/puppetlabs/puppetlabs-concat.git
