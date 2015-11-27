@@ -1,7 +1,16 @@
 (ns kuchi-shoga.core
-  (:gen-class))
+  (:use [compojure.core])
+  (:require (compojure
+              [route :as route]
+              [handler :as handler])))
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+(defn root [params]
+  (format "hello, world!  %s" (keys params)))
+
+(defroutes main-routes
+  (GET "/" [] root)
+  (route/files "/" {:root "public"})
+  (route/not-found "Page not found"))  ;; FUTURE: make this fancier
+
+(def app
+  (handler/site main-routes))
