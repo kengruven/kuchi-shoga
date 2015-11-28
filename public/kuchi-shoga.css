@@ -1,6 +1,5 @@
 svg g.toplevel {
     transform: translate(0.5px, 0.5px);
-    -webkit-transform: translate(0.5px, 0.5px);
 }
 
 svg line { stroke: #aaa; stroke-width: 1 }
