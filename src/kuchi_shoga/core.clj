@@ -2,11 +2,17 @@
   (:use [clojure.string :as str]
         [compojure.core]
         [hiccup.core]
-        [hiccup.page])
+        [hiccup.page]
+        [clojure.java.jdbc :as sql])
   (:require (compojure
              [route :as route]
              [handler :as handler])))
 
+
+(def LOCAL-DB {:subprotocol "postgresql"
+               :subname "//127.0.0.1:5432/kuchi_shoga"
+               :user "kuchi_shoga_app"
+               :password "password123"})
 
 (def KA-LENGTH 6)
 
@@ -56,6 +62,8 @@
      [:link {:href "kuchi-shoga.css" :rel "stylesheet"}]]
     [:body
      [:h2 "Matsuri Taiko"]
+     ;; [:p (format "TESTING: n=%d" (sql/query LOCAL-DB
+     ;;                                        ["select count(*) from information_schema"]))]
      [:div
       (render-piece [{:hits "*--- *--- *-xx x-x-"}
                      {:hits "*-*- --*- *-xx x-x-"}
