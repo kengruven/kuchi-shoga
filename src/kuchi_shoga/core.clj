@@ -5,7 +5,8 @@
         [hiccup.page]
         [clojure.java.jdbc :as sql])
   (:require (compojure [route :as route])
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            [ring.middleware.reload :refer [wrap-reload]]))
 
 
 (def LOCAL-DB {:subprotocol "postgresql"
@@ -84,4 +85,5 @@
   (route/not-found "Page not found"))  ;; FUTURE: make this fancier
 
 (def app
-  (wrap-defaults main-routes site-defaults))
+  (wrap-reload
+   (wrap-defaults main-routes site-defaults)))
