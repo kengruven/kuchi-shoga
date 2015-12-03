@@ -54,17 +54,17 @@
 
 (defn matsuri [params]
   (html
-   "<!DOCTYPE html>"
+   (doctype :html5)
    [:html
     [:head
-     [:script {:src "bower_components/jquery/dist/jquery.min.js"}]
-     [:script {:src "kuchi-shoga.js"}]
-     [:link {:href "kuchi-shoga.css" :rel "stylesheet"}]
+     (include-js "bower_components/jquery/dist/jquery.min.js")
+     (include-js "kuchi-shoga.js")
+     (include-css "kuchi-shoga.css")
 
      ;; material design lite (incl icons)
-     [:link {:rel "stylesheet" :href "/bower_components/material-design-lite/material.min.css"}]
-     [:script {:src "/bower_components/material-design-lite/material.min.js"}]
-     [:link {:rel "stylesheet" :href "/bower_components/material-design-icons-iconfont/dist/material-design-icons.css"}]]
+     (include-css "/bower_components/material-design-lite/material.min.css")
+     (include-js "/bower_components/material-design-lite/material.min.js")
+     (include-css "/bower_components/material-design-icons-iconfont/dist/material-design-icons.css")]
 
     [:body
      [:h2 "Matsuri Taiko"]
