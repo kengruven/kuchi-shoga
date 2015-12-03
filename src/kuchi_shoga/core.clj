@@ -59,7 +59,13 @@
     [:head
      [:script {:src "bower_components/jquery/dist/jquery.min.js"}]
      [:script {:src "kuchi-shoga.js"}]
-     [:link {:href "kuchi-shoga.css" :rel "stylesheet"}]]
+     [:link {:href "kuchi-shoga.css" :rel "stylesheet"}]
+
+     ;; material design lite (incl icons)
+     [:link {:rel "stylesheet" :href "/bower_components/material-design-lite/material.min.css"}]
+     [:script {:src "/bower_components/material-design-lite/material.min.js"}]
+     [:link {:rel "stylesheet" :href "/bower_components/material-design-icons-iconfont/dist/material-design-icons.css"}]]
+
     [:body
      [:h2 "Matsuri Taiko"]
      ;; [:p (format "TESTING: n=%d" (sql/query LOCAL-DB
