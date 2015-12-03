@@ -1,12 +1,11 @@
 (ns kuchi-shoga.core
-  (:use [clojure.string :as str]
-        [compojure.core]
+  (:use [compojure.core]
         [ring.middleware.defaults]
         [hiccup.core]
         [hiccup.page]
         [clojure.java.jdbc :as sql])
-  (:require (compojure
-             [route :as route])))
+  (:require (compojure [route :as route])
+            [clojure.string :as str]))
 
 
 (def LOCAL-DB {:subprotocol "postgresql"
