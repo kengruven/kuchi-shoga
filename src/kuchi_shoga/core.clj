@@ -1,12 +1,12 @@
 (ns kuchi-shoga.core
   (:use [clojure.string :as str]
         [compojure.core]
+        [ring.middleware.defaults]
         [hiccup.core]
         [hiccup.page]
         [clojure.java.jdbc :as sql])
   (:require (compojure
-             [route :as route]
-             [handler :as handler])))
+             [route :as route])))
 
 
 (def LOCAL-DB {:subprotocol "postgresql"
@@ -85,4 +85,4 @@
   (route/not-found "Page not found"))  ;; FUTURE: make this fancier
 
 (def app
-  (handler/site main-routes))
+  (wrap-defaults main-routes site-defaults))

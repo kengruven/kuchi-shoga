@@ -8,6 +8,7 @@
                  ;; web serving
                  [ring/ring-jetty-adapter "1.4.0"]
                  [compojure "1.4.0"]
+                 [ring/ring-defaults "0.1.5"]
 
                  ;; html templating
                  [hiccup "1.0.5"]
