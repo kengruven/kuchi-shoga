@@ -14,42 +14,28 @@
                :user "kuchi_shoga_app"
                :password "password123"})
 
-(def KA-LENGTH 6)
-
-(defn render-hit [x y strength]
-  [:circle {:cx x :cy y :r strength}])
-
-(defn render-line [x y hits]
-  [:g
-   [:line {:x1 (- x 20)
-           :y1 y
-           :x2 (+ 10 (* 20 (count hits)))
-           :y2 y}]
-   (for [[i hit] (map-indexed vector hits)]
-     (if (= hit \x)
-       [:path {:d (format "M%d,%d l%d,%d m0,%d l%d,%d"
-                          (+ x (* 20 i) (- KA-LENGTH)) (- y KA-LENGTH)
-                          (* 2 KA-LENGTH) (* 2 KA-LENGTH)
-                          (* -2 KA-LENGTH)
-                          (* -2 KA-LENGTH) (* 2 KA-LENGTH))}]
-       (render-hit (+ x (* 20 i)) y
-                   ({\* 8 \. 3 #" " 0} hit))))])
+(defn render-line [hits]
+  (for [[i hit] (map-indexed vector hits)]
+    (case hit
+      \x [:td.ka "ka"]
+      \* [:td.don "don"]
+      \. [:td.tsu "tsu"]
+      \- [:td.su "su"])))
 
 (defn render-measure [measure]
   "Given a string like '*.**', make an SVG block."
-  [:svg {:width (* 20 (inc (count measure)))
-         :height 25}
-   [:g {:class "toplevel"} (render-line 15 15 measure)]])
+  [:table.measure
+   [:tr (render-line measure)]])
 
 (defn render-piece [lines]
-  [:table
+  [:table.block
    (for [line lines]
-     [:tr
-      [:td {:class "label"} (line :label)]
-      [:td (for [measure (str/split (line :hits) #" ")]
-             (render-measure measure))]
-      [:td {:class "repeat"} (if (line :repeat) (format "×%d" (line :repeat)))]
-      [:td {:class "notes"} (line :notes)]])])
+     [:tr.line
+      [:td.label (line :label)]
+      [:td.hits (for [measure (str/split (line :hits) #" ")]
+                  (render-measure measure))]
+      [:td.repeat (if (line :repeat) (format "×%d" (line :repeat)))]
+      [:td.notes (line :notes)]])])
 
 
 (defn matsuri [params]
@@ -70,6 +56,8 @@
      [:h2 "Matsuri Taiko"]
      ;; [:p (format "TESTING: n=%d" (sql/query LOCAL-DB
      ;;                                        ["select count(*) from information_schema"]))]
+
+     ;; TODO: try with symbols...
      [:div
       (render-piece [{:hits "*--- *--- *-xx x-x-"}
                      {:hits "*-*- --*- *-xx x-x-"}

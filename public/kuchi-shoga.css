@@ -1,17 +1,14 @@
-svg g.toplevel {
-    transform: translate(0.5px, 0.5px);
+h2 {
+    font-family: Futura, 'Trebuchet MS', sans-serif !important;
+    text-align: center;
 }
 
-svg line { stroke: #aaa; stroke-width: 1 }
-svg path { stroke: black; stroke-width: 3 }
-svg circle { fill: black }
-
-table tr {
+table.block tr.line {
     font-family: Optima, sans-serif;
     font-size: 14pt;
 }
-table tr td {
-    padding-bottom: 1em;
+table.block tr.line {
+    padding-bottom: 0.5em;
 }
 
 /* FIXME: vertical spacing is all wrong here... */
@@ -26,3 +23,12 @@ table tr td.notes {
     padding-left: 1em;
     vertical-align: text-top;
 }
+
+/* FUTURE: need different widths for different styles?  (symbols are narrow, kana is wide, latin in between? */
+table.block tr.line td.hits .measure { padding-right: 1em; display: inline-block; }  /* FIXME: for padding-right, apply only to not-last-child! */
+table.block tr.line td.hits .measure td { width: 2em; }  /* TODO: add class here? */
+
+/* FIXME: make these only apply to latin/kana, not symbols! */
+.block .line .hits .measure .don { font-weight: bold; }
+.block .line .hits .measure .ka { font-style: italic; }
+.block .line .hits .measure .su { color: rgba(0, 0, 0, 0.3); }
