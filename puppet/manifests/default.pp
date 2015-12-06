@@ -14,7 +14,10 @@ class leiningen($user="vagrant") {
 }
 include leiningen
 
-class { 'postgresql::server': }
+class { 'postgresql::server':
+  ip_mask_allow_all_users => '0.0.0.0/0',
+  listen_addresses        => '*'
+}
 
 postgresql::server::db { 'kuchi_shoga':
   user     => 'kuchi_shoga_app',
